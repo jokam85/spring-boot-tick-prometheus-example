@@ -1,0 +1,11 @@
+management:
+  metrics:
+    export:
+      statsd:
+        enabled: true
+        flavor: telegraf
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: metrics, info, health
