@@ -1,0 +1,421 @@
+{
+  "meta": {
+    "chronografVersion": "1.7.17",
+    "sources": {
+      "0": {
+        "name": "http://influxdb:8086",
+        "link": "/chronograf/v1/sources/0"
+      }
+    }
+  },
+  "dashboard": {
+    "id": 1,
+    "cells": [
+      {
+        "i": "0a1f872c-66d9-460c-b416-5ba24e434bae",
+        "x": 0,
+        "y": 0,
+        "w": 4,
+        "h": 4,
+        "name": "Counter self incremented",
+        "queries": [
+          {
+            "query": "SELECT mean(\"value\") AS \"mean_value\" FROM \"telegraf\".\"autogen\".\"xxx_counter\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"statistic\"='count' GROUP BY time(:interval:) FILL(previous)",
+            "queryConfig": {
+              "database": "telegraf",
+              "measurement": "xxx_counter",
+              "retentionPolicy": "autogen",
+              "fields": [
+                {
+                  "value": "mean",
+                  "type": "func",
+                  "alias": "mean_value",
+                  "args": [
+                    {
+                      "value": "value",
+                      "type": "field",
+                      "alias": ""
+                    }
+                  ]
+                }
+              ],
+              "tags": {
+                "statistic": [
+                  "count"
+                ]
+              },
+              "groupBy": {
+                "time": "auto",
+                "tags": []
+              },
+              "areTagsAccepted": true,
+              "fill": "previous",
+              "rawText": null,
+              "range": null,
+              "shifts": null
+            },
+            "source": "",
+            "type": "influxql"
+          }
+        ],
+        "axes": {
+          "x": {
+            "bounds": [
+              "",
+              ""
+            ],
+            "label": "",
+            "prefix": "",
+            "suffix": "",
+            "base": "10",
+            "scale": "linear"
+          },
+          "y": {
+            "bounds": [
+              "",
+              ""
+            ],
+            "label": "",
+            "prefix": "",
+            "suffix": "",
+            "base": "10",
+            "scale": "linear"
+          },
+          "y2": {
+            "bounds": [
+              "",
+              ""
+            ],
+            "label": "",
+            "prefix": "",
+            "suffix": "",
+            "base": "10",
+            "scale": "linear"
+          }
+        },
+        "type": "line",
+        "colors": [
+          {
+            "id": "325115f3-580e-4e50-a77e-c68394309d9d",
+            "type": "scale",
+            "hex": "#31C0F6",
+            "name": "Nineteen Eighty Four",
+            "value": "0"
+          },
+          {
+            "id": "fc5754ba-9e7d-4b6f-b4e1-2c7dd0200080",
+            "type": "scale",
+            "hex": "#A500A5",
+            "name": "Nineteen Eighty Four",
+            "value": "0"
+          },
+          {
+            "id": "c6ae4c44-db17-494d-9068-e6cef156fdda",
+            "type": "scale",
+            "hex": "#FF7E27",
+            "name": "Nineteen Eighty Four",
+            "value": "0"
+          }
+        ],
+        "legend": {},
+        "tableOptions": {
+          "verticalTimeAxis": true,
+          "sortBy": {
+            "internalName": "time",
+            "displayName": "",
+            "visible": true
+          },
+          "wrapping": "truncate",
+          "fixFirstColumn": true
+        },
+        "fieldOptions": [
+          {
+            "internalName": "time",
+            "displayName": "",
+            "visible": true
+          }
+        ],
+        "timeFormat": "MM/DD/YYYY HH:mm:ss",
+        "decimalPlaces": {
+          "isEnforced": true,
+          "digits": 2
+        },
+        "note": "",
+        "noteVisibility": "default",
+        "links": {
+          "self": "/chronograf/v1/dashboards/1/cells/0a1f872c-66d9-460c-b416-5ba24e434bae"
+        }
+      },
+      {
+        "i": "d91202c0-1b71-40db-8edd-4094428f5c49",
+        "x": 4,
+        "y": 0,
+        "w": 4,
+        "h": 4,
+        "name": "Error counter gauge",
+        "queries": [
+          {
+            "query": "SELECT mean(\"value\") AS \"mean_value\" FROM \"telegraf\".\"autogen\".\"xxx_error_count_gauge\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+            "queryConfig": {
+              "database": "telegraf",
+              "measurement": "xxx_error_count_gauge",
+              "retentionPolicy": "autogen",
+              "fields": [
+                {
+                  "value": "mean",
+                  "type": "func",
+                  "alias": "mean_value",
+                  "args": [
+                    {
+                      "value": "value",
+                      "type": "field",
+                      "alias": ""
+                    }
+                  ]
+                }
+              ],
+              "tags": {},
+              "groupBy": {
+                "time": "auto",
+                "tags": []
+              },
+              "areTagsAccepted": false,
+              "fill": "previous",
+              "rawText": null,
+              "range": null,
+              "shifts": null
+            },
+            "source": "",
+            "type": "influxql"
+          }
+        ],
+        "axes": {
+          "x": {
+            "bounds": [
+              "",
+              ""
+            ],
+            "label": "",
+            "prefix": "",
+            "suffix": "",
+            "base": "10",
+            "scale": "linear"
+          },
+          "y": {
+            "bounds": [
+              "",
+              ""
+            ],
+            "label": "",
+            "prefix": "",
+            "suffix": "",
+            "base": "10",
+            "scale": "linear"
+          },
+          "y2": {
+            "bounds": [
+              "",
+              ""
+            ],
+            "label": "",
+            "prefix": "",
+            "suffix": "",
+            "base": "10",
+            "scale": "linear"
+          }
+        },
+        "type": "line",
+        "colors": [
+          {
+            "id": "325115f3-580e-4e50-a77e-c68394309d9d",
+            "type": "scale",
+            "hex": "#31C0F6",
+            "name": "Nineteen Eighty Four",
+            "value": "0"
+          },
+          {
+            "id": "fc5754ba-9e7d-4b6f-b4e1-2c7dd0200080",
+            "type": "scale",
+            "hex": "#A500A5",
+            "name": "Nineteen Eighty Four",
+            "value": "0"
+          },
+          {
+            "id": "c6ae4c44-db17-494d-9068-e6cef156fdda",
+            "type": "scale",
+            "hex": "#FF7E27",
+            "name": "Nineteen Eighty Four",
+            "value": "0"
+          }
+        ],
+        "legend": {},
+        "tableOptions": {
+          "verticalTimeAxis": true,
+          "sortBy": {
+            "internalName": "time",
+            "displayName": "",
+            "visible": true
+          },
+          "wrapping": "truncate",
+          "fixFirstColumn": true
+        },
+        "fieldOptions": [
+          {
+            "internalName": "time",
+            "displayName": "",
+            "visible": true
+          }
+        ],
+        "timeFormat": "MM/DD/YYYY HH:mm:ss",
+        "decimalPlaces": {
+          "isEnforced": true,
+          "digits": 2
+        },
+        "note": "",
+        "noteVisibility": "default",
+        "links": {
+          "self": "/chronograf/v1/dashboards/1/cells/d91202c0-1b71-40db-8edd-4094428f5c49"
+        }
+      },
+      {
+        "i": "6d854461-311c-497e-8be2-879915aa455a",
+        "x": 8,
+        "y": 0,
+        "w": 4,
+        "h": 4,
+        "name": "Success gauge self incremented",
+        "queries": [
+          {
+            "query": "SELECT mean(\"value\") AS \"mean_value\" FROM \"telegraf\".\"autogen\".\"xxx_success_count_gauge\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+            "queryConfig": {
+              "database": "telegraf",
+              "measurement": "xxx_success_count_gauge",
+              "retentionPolicy": "autogen",
+              "fields": [
+                {
+                  "value": "mean",
+                  "type": "func",
+                  "alias": "mean_value",
+                  "args": [
+                    {
+                      "value": "value",
+                      "type": "field",
+                      "alias": ""
+                    }
+                  ]
+                }
+              ],
+              "tags": {},
+              "groupBy": {
+                "time": "auto",
+                "tags": []
+              },
+              "areTagsAccepted": false,
+              "fill": "previous",
+              "rawText": null,
+              "range": null,
+              "shifts": null
+            },
+            "source": "",
+            "type": "influxql"
+          }
+        ],
+        "axes": {
+          "x": {
+            "bounds": [
+              "",
+              ""
+            ],
+            "label": "",
+            "prefix": "",
+            "suffix": "",
+            "base": "10",
+            "scale": "linear"
+          },
+          "y": {
+            "bounds": [
+              "",
+              ""
+            ],
+            "label": "",
+            "prefix": "",
+            "suffix": "",
+            "base": "10",
+            "scale": "linear"
+          },
+          "y2": {
+            "bounds": [
+              "",
+              ""
+            ],
+            "label": "",
+            "prefix": "",
+            "suffix": "",
+            "base": "10",
+            "scale": "linear"
+          }
+        },
+        "type": "line",
+        "colors": [
+          {
+            "id": "325115f3-580e-4e50-a77e-c68394309d9d",
+            "type": "scale",
+            "hex": "#31C0F6",
+            "name": "Nineteen Eighty Four",
+            "value": "0"
+          },
+          {
+            "id": "fc5754ba-9e7d-4b6f-b4e1-2c7dd0200080",
+            "type": "scale",
+            "hex": "#A500A5",
+            "name": "Nineteen Eighty Four",
+            "value": "0"
+          },
+          {
+            "id": "c6ae4c44-db17-494d-9068-e6cef156fdda",
+            "type": "scale",
+            "hex": "#FF7E27",
+            "name": "Nineteen Eighty Four",
+            "value": "0"
+          }
+        ],
+        "legend": {},
+        "tableOptions": {
+          "verticalTimeAxis": true,
+          "sortBy": {
+            "internalName": "time",
+            "displayName": "",
+            "visible": true
+          },
+          "wrapping": "truncate",
+          "fixFirstColumn": true
+        },
+        "fieldOptions": [
+          {
+            "internalName": "time",
+            "displayName": "",
+            "visible": true
+          }
+        ],
+        "timeFormat": "MM/DD/YYYY HH:mm:ss",
+        "decimalPlaces": {
+          "isEnforced": true,
+          "digits": 2
+        },
+        "note": "",
+        "noteVisibility": "default",
+        "links": {
+          "self": "/chronograf/v1/dashboards/1/cells/6d854461-311c-497e-8be2-879915aa455a"
+        }
+      }
+    ],
+    "templates": [],
+    "name": "Gauges and counters",
+    "organization": "default",
+    "links": {
+      "self": "/chronograf/v1/dashboards/1",
+      "cells": "/chronograf/v1/dashboards/1/cells",
+      "templates": "/chronograf/v1/dashboards/1/templates"
+    }
+  }
+}
