@@ -6,3 +6,4 @@
 - run spring boot app
 - observe dashboard
 - use GET to http://localhost:8080/api/set-errors/{some-number} to set some error value which is monitored in dashboard
+- delme
